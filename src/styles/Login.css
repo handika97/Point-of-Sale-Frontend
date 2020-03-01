@@ -1,0 +1,29 @@
+.box-login {
+  width: 400px;
+  margin-top: 180px;
+  margin-left: 490px;
+  display: block;
+  background-color: ivory;
+  opacity: 0.5;
+  text-align: left;
+  font-size: medium;
+}
+.logo {
+  width: 600px;
+  margin-left: 560px;
+}
+
+.container-login:before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  background-size: cover;
+  background-position: center top;
+  display: block;
+  background-image: url(https://ichef.bbci.co.uk/news/410/cpsprodpb/100AA/production/_100860756_gettyimages-635793190.jpg);
+  width: 100%;
+  height: 100%;
+  margin-top: -190px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}

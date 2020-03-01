@@ -1,0 +1,123 @@
+.year {
+  position: absolute;
+  background: linear-gradient(
+    285.38deg,
+    #fbb2b4 30.05%,
+    rgba(255, 143, 178, 0) 133.19%
+  );
+  box-shadow: 10px 15px 10px rgba(255, 143, 178, 0.25);
+  border-radius: 10px;
+  width: 350px;
+  height: 213px;
+  font-weight: 500;
+  box-shadow: 5px;
+
+  line-height: 20px;
+  padding: 30px;
+}
+.income {
+  position: absolute;
+  background: linear-gradient(
+    285.38deg,
+    #29dfff 30.05%,
+    rgba(41, 223, 255, 0) 133.19%
+  );
+  box-shadow: 10px 15px 10px rgba(41, 223, 255, 0.25);
+  border-radius: 10px;
+  margin-left: 380px;
+  width: 350px;
+  height: 213px;
+  top: 0;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 30px;
+}
+.week {
+  position: relative;
+  background: linear-gradient(
+    285.38deg,
+    #ab84c8 30.05%,
+    rgba(241, 201, 236, 0) 133.19%
+  );
+  box-shadow: 10px 15px 10px rgba(241, 201, 236, 0.25);
+  border-radius: 10px;
+  margin-left: 760px;
+  width: 350px;
+  height: 213px;
+  margin-top: -300px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 30px;
+}
+.history_p {
+  width: 300px;
+  height: 21px;
+  left: 180px;
+  top: 188px;
+  margin-top: 10px;
+}
+.componentHistory {
+  font-family: Airbnb Cereal App;
+  font-size: 30px;
+  line-height: 39px;
+}
+.record {
+  margin-left: 150px;
+  background-color: white;
+  width: 1110px;
+  height: 300px;
+  margin-top: -500px;
+  position: relative;
+}
+.history {
+  margin-left: 150px;
+  background-color: white;
+  width: 1110px;
+  height: 300px;
+  margin-top: 50px;
+  position: relative;
+}
+.cons_history {
+  background-color: rgb(224, 225, 233);
+}
+
+.modal-boby-items {
+  grid-template-rows: auto;
+  margin: 1px;
+  font-size: 14px;
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+.name_items {
+  width: 100px;
+  height: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.name_items_qty {
+  margin-left: 70px;
+  width: 100px;
+  height: 70px;
+}
+.index-items {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.p_year .p_income .p_week {
+  font-family: Airbnb Cereal App;
+  font-size: 15px;
+  line-height: 20px;
+}
+/* <tr>
+  <td>
+    <div className="name_items">{items.name}</div>
+  </td>
+  <td>
+    <div className="name_items">{items.qty}</div>
+  </td>
+  <td>
+    <div className="name_items">{items.image}</div>
+  </td>
+</tr> */

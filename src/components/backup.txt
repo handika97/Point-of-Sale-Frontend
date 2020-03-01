@@ -1,0 +1,351 @@
+<div className="search">
+<input
+  type="text"
+  class="form-control"
+  name="keyword"
+  value={this.state.keyword}
+  onChange={this.onChangeValue}
+  placeholder="keyword"
+/>
+{/* <button className="button" name="sortType" onClick={() => this.setState({ sortType: "asc" })}/>
+<button className="button" name="sortType" oonClick={() => this.setState({ sortType: "desc"})}/> */}
+</div>
+<div className="modaladd">
+<button
+  type="button"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#add"
+  data-whatever="@getbootstrap"
+>
+  Add Product
+</button>
+</div>
+<div className="container">
+<div className="row">
+  <div className="col-12 text-center">
+    <table className="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Desc</th>
+          <th scope="col">Price</th>
+          <th scope="col">Stock</th>
+          <th scope="col">ID Category Product</th>
+          <th scope="col">Image</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {/*keyword*/
+        !this.props.product.isPending ? (
+        this.state.product_1.map((product, i) => {
+          return (
+            <tr>
+              <td>{i + 1}</td>
+              <td>{product.nama}</td>
+              <td>{product.description}</td>
+              <td>{product.price}</td>
+              <td>{product.stock}</td>
+              <td>{product.id_category}</td>
+              <td>
+                <img src={product.Image} alt="" width="50px"></img>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#edit"
+                  onClick={() => this.setState({ id: product.id })}
+                >
+                  EDIT
+                </button>
+                |
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#delete "
+                  onClick={() => this.setState({ id: product.id })}
+                >
+                  DELETE
+                </button>
+              </td>
+            </tr>
+          );
+        })):null}
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+{
+<div>
+  {/*---------------------------------------------------------------------------------------*/}
+
+  <div
+    class="modal fade"
+    id="add"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            New message
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onSubmit={this.onSubmitButton}>
+            <div class="form-group">
+              <label class="col-form-label">Nama Product</label>
+              <input
+                type="text"
+                class="form-control"
+                name="nama"
+                value={this.state.nama}
+                onChange={this.onChangeValue}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">description</label>
+              <input
+                type="text"
+                class="form-control"
+                name="description"
+                value={this.state.description}
+                onChange={this.onChangeValue}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-form-label">
+                price
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="price"
+                value={this.state.price}
+                onChange={this.onChangeValue}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">stock</label>
+              <input
+                type="text"
+                class="form-control"
+                name="stock"
+                value={this.state.stock}
+                onChange={this.onChangeValue}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Image</label>
+              <input
+                type="file"
+                label="File"
+                accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov"
+                class="form-control"
+                name="Image"
+                onChange={this.onChangeUpload}
+              ></input>
+            </div>
+            <div class="form-group ">
+              <label class="col-form-label">id category</label>
+              <input
+                type="text"
+                class="form-control"
+                name="id_category"
+                value={this.state.id_category}
+                onChange={this.onChangeValue}
+              ></input>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* /*-------------------------------------------------------------------------------------------------------------------------------------*/}
+
+  <div
+    class="modal fade"
+    id="edit"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            EDIT
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onSubmit={this.onSubmitButtonU}>
+            <div class="form-group">
+              {/* <label for="name" class="col-form-label">No Yang di Edit:</label> */}
+              {/* <input type="text" class="form-control" name="id" value={this.state.id} onChange={this.onChangeValueU} required/> */}
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-form-label">
+                Nama:
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="nama"
+                id="nama"
+                value={this.state.nama}
+                onChange={this.onChangeValueU}
+              />
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-form-label">
+                description:
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="description"
+                id="description"
+                value={this.state.description}
+                onChange={this.onChangeValueU}
+              />
+            </div>
+            <div class="form-group">
+              <label for="Category" class="col-form-label">
+                price:
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="price"
+                id="price"
+                value={this.state.price}
+                onChange={this.onChangeValueU}
+              />
+            </div>
+            <div class="form-group">
+              <label for="Cashier" class="col-form-label">
+                stock:
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="stock"
+                id="stock"
+                value={this.state.stock}
+                onChange={this.onChangeValueU}
+              />
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Image</label>
+              <input
+                type="file"
+                label="File"
+                accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov"
+                class="form-control"
+                name="Image"
+                onChange={this.onChangeUploadU}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label for="Cashier" class="col-form-label">
+                Id category:
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="id_category"
+                id="id_category"
+                value={this.state.id_category}
+                onChange={this.onChangeValueU}
+              />
+            </div>
+
+            <div class="modal-footer" />
+            <button
+              type="submit"
+              name="Updatedata"
+              class="btn btn-primary"
+            >
+              Update Data
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/*---------------------------------------------------------------------------------------------*/}
+  <div
+    class="modal fade"
+    id="delete"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Delete this
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <button
+            type="submit"
+            name="Updatedata"
+            class="btn btn-primary"
+            onClick={this.delete}
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

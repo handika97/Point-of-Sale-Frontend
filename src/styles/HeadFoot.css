@@ -1,0 +1,51 @@
+.sidebar {
+  margin-top: 24px;
+  padding: 5px;
+  border-color: black;
+  min-height: 90vh;
+  width: 100px;
+  flex: 1;
+  position: fixed;
+  left: 0;
+  z-index: 7;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+.image1 {
+  width: 40px;
+  margin-left: 10px;
+}
+.image2 {
+  width: 50px;
+  margin-left: 2px;
+  margin-top: 20px;
+}
+
+.image3 {
+  width: 50px;
+  height: 40px;
+  margin-left: 4px;
+  margin-top: 110px;
+  z-index: 12;
+  position: fixed;
+}
+.image4 {
+  width: 60px;
+  height: 40px;
+  margin-left: 2px;
+  margin-top: 180px;
+  z-index: 12;
+  position: fixed;
+}
+.main {
+  padding: 5px;
+  height: 70px;
+  border-color: black;
+
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  margin-top: 70;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
