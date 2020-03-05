@@ -160,11 +160,16 @@ class Product extends React.Component {
   };
 
   delete = id => {
+    console.log(id);
     let newCart = this.state.cart.filter(cart => cart.id !== id);
-    console.log(newCart);
     this.setState({
       cart: newCart
     });
+    // let newCart = this.state.cart.filter(cart => cart.id !== id);
+    // console.log(newCart);
+    // this.setState({
+    //   cart: newCart
+    // });
   };
 
   reset = y => {
@@ -195,25 +200,24 @@ class Product extends React.Component {
   }
 
   render() {
-    console.log(localStorage.getItem("user"));
-    console.log(this.state.product.length);
     return (
       <Fragment>
-        {/* <Cart data={this.state.data}/> */}
-        <div className="container-item">
-          {this.state.product.map(product => {
-            return (
-              <div>
-                <div className="item">
-                  <input
-                    type="image"
-                    alt=""
-                    className="img"
-                    src={product.Image}
-                    onClick={() => this.addcart(product)}
-                  />
-                  <div className="box-title">
-                    {/* <input
+        <div>
+          {/* <Cart data={this.state.data}/> */}
+          <div className="container-item">
+            {this.state.product.map(product => {
+              return (
+                <div>
+                  <div className="item">
+                    <input
+                      type="image"
+                      alt=""
+                      className="img"
+                      src={product.Image}
+                      onClick={() => this.addcart(product)}
+                    />
+                    <div className="box-title">
+                      {/* <input
                       type="image"
                       alt=""
                       className="add_1"
@@ -223,25 +227,22 @@ class Product extends React.Component {
                       data-target="#addcart"
                       onClick={() => this.addcart(product)}
                     ></input> */}
-                    <p className="title">{product.nama}</p>
-                    <p className="price">Rp.{product.price}</p>
+                      <p className="title">{product.nama}</p>
+                      <p className="price">Rp.{product.price}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-          {this.state.product.length > 5 ? (
-            <button
-              type="input"
-              onClick={() => this.pageProductNext(this.state.page + 1)}
-            >
-              NEXT
-            </button>
-          ) : (
-            <button type="input" hidden>
-              NEXT
-            </button>
-          )}
+              );
+            })}
+
+            {
+              <Cart
+                product={this.state.cart}
+                handleReset={this.reset}
+                delete={this.delete}
+              />
+            }
+          </div>
           {this.state.page > 1 ? (
             <button
               type="input"
@@ -254,15 +255,19 @@ class Product extends React.Component {
               PREV
             </button>
           )}
+          {this.state.product.length > 5 ? (
+            <button
+              type="input"
+              onClick={() => this.pageProductNext(this.state.page + 1)}
+            >
+              NEXT
+            </button>
+          ) : (
+            <button type="input" hidden>
+              NEXT
+            </button>
+          )}
         </div>
-
-        {
-          <Cart
-            product={this.state.cart}
-            handleReset={this.reset}
-            delete={this.delete}
-          />
-        }
 
         {/*--------------------------------------------------------------------------------------------------------*/}
         {/* <div

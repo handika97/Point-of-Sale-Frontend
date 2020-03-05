@@ -76,16 +76,21 @@ class Login extends React.Component {
                   onChange={this.onChangeValue}
                 />
               </div>
-              <button
-                type="submit"
-                class="btn btn-primary"
-                onClick={this.onSubmitButton}
-              >
-                Submit
-              </button>
-              <Link to="/register">
-                <button class="btn btn-primary">Register</button>
-              </Link>
+              <div style={{ justifyContent: "center" }}>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  onClick={this.onSubmitButton}
+                >
+                  Submit
+                </button>
+                <div style={{ margin: 5 }}>
+                  <text>Already have an account?</text>
+                  <Link to="/register">
+                    <button class="btn btn-primary">Sign Up</button>
+                  </Link>
+                </div>
+              </div>
             </form>
           </div>
         </div>

@@ -17,7 +17,6 @@
   z-index: 9;
   position: fixed;
 }
-
 .card-box {
   transition-duration: 0.9s;
   height: 550px;
@@ -100,6 +99,14 @@ div.qtyqty {
   color: #000000;
   position: fixed;
   z-index: 10;
+}
+.scroll {
+  border: 1px solid #555;
+  height: 380px;
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 390px;
+  border-color: white;
 }
 .total_price {
   margin-left: 271px;

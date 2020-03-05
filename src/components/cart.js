@@ -67,17 +67,20 @@ class Cart extends React.Component {
       } else {
         for (let i = 0; i < this.state.qty.length; i++) {
           if (myId === this.state.qty[i].Id) {
-            if (qty < 0) {
+            if (qty < 1) {
               this.props.delete(myId);
               let newCart = this.state.qty.filter(qty => qty.Id !== myId);
-              console.log(newCart);
+              console.log(this.state.qty[i].Id);
               this.setState({
                 qty: newCart
               });
             } else {
+              console.log("yee");
               // eslint-disable-next-line react/no-direct-mutation-state
               this.state.qty[i].qty = qty;
             }
+          } else {
+            console.log("yeee");
           }
         }
       }
@@ -127,21 +130,23 @@ class Cart extends React.Component {
 
     return (
       <div className="card-box">
-        {this.props.product !== undefined
-          ? this.props.product.map(function(product) {
-              return (
-                <Product
-                  name={product.name}
-                  price={product.price}
-                  Image={product.Image}
-                  Id={product.id}
-                  qty={product.qty}
-                  handleQty={component.Qty}
-                  handleTotal={component.calculateTotal}
-                />
-              );
-            })
-          : null}
+        <div className="scroll">
+          {this.props.product !== undefined
+            ? this.props.product.map(function(product) {
+                return (
+                  <Product
+                    name={product.name}
+                    price={product.price}
+                    Image={product.Image}
+                    Id={product.id}
+                    qty={product.qty}
+                    handleQty={component.Qty}
+                    handleTotal={component.calculateTotal}
+                  />
+                );
+              })
+            : null}
+        </div>
 
         <Total total={this.state.total} />
         {this.props.product.length !== 0 ? (
@@ -224,7 +229,7 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      qty: 0
+      qty: 1
     };
     this.add = this.add.bind(this);
     this.subtract = this.subtract.bind(this);
@@ -236,18 +241,23 @@ class Product extends React.Component {
       qty: this.state.qty + 1
     });
 
-    console.log(this.state.qty);
+    //console.log(this.state.qty);
     this.props.handleTotal(parseInt(this.props.price));
   };
 
-  subtract() {
+  subtract = () => {
     this.setState({
       qty: this.state.qty - 1
     });
+
     console.log(this.state.qty);
     if (this.state.qty >= 1) {
       this.props.handleTotal(parseInt(-this.props.price));
     }
+  };
+  componentDidMount() {
+    this.props.handleQty(1, this.props.Id);
+    this.props.handleTotal(parseInt(this.props.price));
   }
 
   render() {
@@ -260,18 +270,23 @@ class Product extends React.Component {
         <div className="qtyqty">
           <div
             className="plus_Button"
-            onClick={this.subtract}
+            onClick={() => {
+              this.subtract();
+              this.props.handleQty(this.state.qty, this.props.Id);
+            }}
             //disabled={this.state.qty <= 1}
           >
             <p className="text-cart">-</p>
-            {this.props.handleQty(this.state.qty, this.props.Id)}
+            {}
           </div>
           <div className="qty_cart">
             <p className="text-cart">{this.state.qty}</p>
           </div>
           <div className="minus_Button" onClick={this.add}>
-            <p className="text-cart">+</p>
             {this.props.handleQty(this.state.qty, this.props.Id)}
+
+            <p className="text-cart">+</p>
+            {}
           </div>
           <p className="price_cart">Rp.{price}</p>
         </div>
